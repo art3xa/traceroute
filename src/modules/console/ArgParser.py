@@ -19,7 +19,7 @@ class ArgParser:
         """
         Add arguments to the parser
         """
-        self._parser.add_argument("ip", type=str,  # required=True,
+        self._parser.add_argument("ip", type=str, metavar="IP_ADDRESS",
                                   help="IP address")
         self._parser.add_argument("protocol", type=str, metavar='protocol',
                                   default=['tcp', 'udp', 'icmp'],
@@ -43,12 +43,6 @@ class ArgParser:
             return True
         except ValueError:
             return False
-
-        # try:
-        #     correct_ip = ipaddress.ip_address(ip)
-        # except ValueError:
-        #     print('Invalid IP')
-        #     sys.exit(-1)
 
     def is_correct_protocol(self, protocol: str):
         """ Checking the correctness of the protocol """
